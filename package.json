@@ -1,0 +1,16 @@
+{
+  "name": "coding-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "coding-challenge.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Umesh Maharjan",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "jest": "^27.1.0"
+  }
+}
