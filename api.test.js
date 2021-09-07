@@ -1,4 +1,4 @@
-const resultantObject = require('./api.js');
+const { resultantObject, groupedByLocationOptimized } = require('./api.js');
 
 describe('group by first two letter of location key', () => {
   test('case 1', () => {
@@ -44,7 +44,7 @@ describe('group by first two letter of location key', () => {
       },
     };
 
-    expect(resultantObject(responseFromApi)).toEqual(result);
+    expect(groupedByLocationOptimized(responseFromApi)).toEqual(result);
   });
 
   test('case 2', () => {
@@ -130,6 +130,6 @@ describe('group by first two letter of location key', () => {
       },
     };
 
-    expect(resultantObject(responseFromApi)).toEqual(result);
+    expect(groupedByLocationOptimized(responseFromApi)).toEqual(result);
   });
 });

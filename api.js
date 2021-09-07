@@ -2314,7 +2314,20 @@ function groupByLocation(responseFromApi) {
   }, {});
 }
 
-module.exports = resultantObject;
+function groupedByLocationOptimized(responseFromApi) {
+  return responseFromApi.data.dashboard.components.reduce(
+    (groupedByLocation, cur) => {
+      const location = cur.location.substr(0, 2);
+      if (!groupedByLocation[location]) groupedByLocation[location] = {};
+
+      groupedByLocation[location][cur.location] = cur;
+      return groupedByLocation;
+    },
+    {}
+  );
+}
+
+module.exports = { resultantObject, groupedByLocationOptimized };
 
 //Solution: 1b
 const locations = ['AGAAA', 'OVLHP', 'DR005'];
