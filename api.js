@@ -2286,35 +2286,8 @@ const responseFromApi = {
 };
 
 //Solution : 1 a)
-//console.log(resultantObject(responseFromApi));
-//For iterating each object through location key and it will return the final result
-function resultantObject(responseFromApi) {
-  let objOfArray = groupByLocation(responseFromApi);
-  let res = {};
-  for (let key in objOfArray) {
-    let obj = objOfArray[key];
-    // each object
-    let innerResult = obj.reduce(
-      (acc, cur) => ({ ...acc, [cur.location]: cur }),
-      {}
-    );
-    res[key] = innerResult;
-  }
-  return res;
-}
-
-function groupByLocation(responseFromApi) {
-  return responseFromApi.data.dashboard.components.reduce((acc, obj) => {
-    const key = obj.location.substr(0, 2);
-
-    if (!acc[key]) acc[key] = [];
-
-    acc[key].push(obj);
-    return acc;
-  }, {});
-}
-
-function groupedByLocationOptimized(responseFromApi) {
+//console.log(groupedByLocation(responseFromApi));
+function groupedByLocation(responseFromApi) {
   return responseFromApi.data.dashboard.components.reduce(
     (groupedByLocation, cur) => {
       const location = cur.location.substr(0, 2);
@@ -2327,7 +2300,7 @@ function groupedByLocationOptimized(responseFromApi) {
   );
 }
 
-module.exports = { resultantObject, groupedByLocationOptimized };
+module.exports = groupedByLocation;
 
 //Solution: 1b
 const locations = ['AGAAA', 'OVLHP', 'DR005'];

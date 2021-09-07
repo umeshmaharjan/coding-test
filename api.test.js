@@ -1,4 +1,4 @@
-const { resultantObject, groupedByLocationOptimized } = require('./api.js');
+const groupedByLocationOptimized = require('./api.js');
 
 describe('group by first two letter of location key', () => {
   test('case 1', () => {
